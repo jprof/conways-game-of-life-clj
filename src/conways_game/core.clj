@@ -62,8 +62,7 @@
   [grid n]
   (if (> n 0)
     (get-nth-position (get-next-position grid) (dec n))
-    grid
-    ))
+    grid))
 
 (defn vec-to-string
   [ve]
