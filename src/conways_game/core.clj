@@ -9,7 +9,7 @@
 (defn build-initial-grid
   [r-size c-size]
   (vec (for [r (range r-size)]
-    (vec(for [c (range c-size)] \.)))))
+         (vec (for [c (range c-size)] \.)))))
 
 (defn is-alive?
   [grid rc]
@@ -41,16 +41,16 @@
       (let [curr-val (get-in grid [curr-r curr-c])
             neighbors (alive-neighbors grid [curr-r curr-c])
             next-val (if (= curr-val \*)
-                         (goldie-locks-filter curr-val neighbors)
-                         (new-life-filter curr-val neighbors))]
-      (if-not (and
-               (= max-r (inc curr-r))
-               (= max-c (inc curr-c)))
-        (recur
-          (assoc-in next-pos [curr-r curr-c] next-val)
-          (if (> max-c (inc curr-c)) curr-r (inc curr-r))
-          (if (> max-c (inc curr-c)) (inc curr-c) 0))
-        next-pos)))))
+                       (goldie-locks-filter curr-val neighbors)
+                       (new-life-filter curr-val neighbors))]
+        (if-not (and
+                  (= max-r (inc curr-r))
+                  (= max-c (inc curr-c)))
+          (recur
+            (assoc-in next-pos [curr-r curr-c] next-val)
+            (if (> max-c (inc curr-c)) curr-r (inc curr-r))
+            (if (> max-c (inc curr-c)) (inc curr-c) 0))
+          next-pos)))))
 
 (defn convert-str-to-vec
   [s]
@@ -66,9 +66,9 @@
     ))
 
 (defn vec-to-string
- [ve]
- (let [char-cat-fn (fn [v] (apply str v))
-       line-cat-fn (fn [s t] (str s "\n" t))]
- (reduce line-cat-fn
-         (map char-cat-fn ve))))
+  [ve]
+  (let [char-cat-fn (fn [v] (apply str v))
+        line-cat-fn (fn [s t] (str s "\n" t))]
+    (reduce line-cat-fn
+            (map char-cat-fn ve))))
 
