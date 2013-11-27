@@ -2,6 +2,16 @@
   (:require [clojure.test :refer :all]
             [conways-game.core :refer :all]))
 
+(def test-inputs
+  [".........\n....*....\n...***...\n....*....\n........."])
+
+(def test-outputs
+  [".........\n...***...\n...*.*...\n...***...\n........."])
+
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing "First pattern"
+    (is (=
+         (vec-to-string
+           (get-nth-position
+             (convert-str-to-vec (nth test-inputs 0)) 1))
+         (nth test-outputs 0)))))
