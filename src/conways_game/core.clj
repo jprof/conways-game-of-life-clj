@@ -21,7 +21,7 @@
 
 (defn goldie-locks-filter
   [value neighbors]
-  (if (and (>= 3 (count neighbors)) (<= 2 (count neighbors)))
+  (if (>= 3 (count neighbors) 2)
     \*
     \.))
 
