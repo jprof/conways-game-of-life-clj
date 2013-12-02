@@ -7,7 +7,17 @@ A Clojure implementation of the coding kata found [here][1].
 
 ## Usage
 
-FIXME
+There are currently two ways to interact with this program.
+
+1. Invoking `lein run` will run the code in main.clj, which is a loop taking
+   the input specified in the above link and returning the next game of life
+   position.
+
+2. Using the ClojureScript build available [here][2]. This is an interactive,
+   fixed size board that you can toggle the cells and compute the next
+   position.
+
+  [2]: http://jprof.github.io/conways-game-of-life-clj/
 
 ## License
 
