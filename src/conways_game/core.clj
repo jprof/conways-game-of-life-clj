@@ -50,7 +50,7 @@
             (assoc-in next-pos [curr-r curr-c] next-val)
             (if (> max-c (inc curr-c)) curr-r (inc curr-r))
             (if (> max-c (inc curr-c)) (inc curr-c) 0))
-          next-pos)))))
+          (assoc-in next-pos [curr-r curr-c] next-val))))))
 
 (defn convert-str-to-vec
   [s]
