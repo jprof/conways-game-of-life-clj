@@ -136,6 +136,12 @@
     (doseq [row (range vert-cells)]
       (draw-line! c 0 (* row height) (* width horz-cells) (* row height)))))
 
+(defn clear-board
+  [c]
+  (-> c
+      (set-color! empty-color)
+      (.clearRect 0 0 (.-scrollWidth canvas) (.-scrollHeight canvas))))
+
 (defn draw-board
   [canvas board]
   (let [{rows :rows
@@ -143,6 +149,7 @@
          cell-height :cell-height
          cell-width  :cell-width} (board-properties canvas board)
         c ctx]
+    (clear-board c)
     (doseq [row (range rows)
             col (range cols)] 
       (draw-cell c row col cell-width cell-height (if (= (get-in board [row col]) \.)
