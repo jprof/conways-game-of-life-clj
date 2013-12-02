@@ -32,11 +32,10 @@
 
 (defn read-user-input
   []
-  (let [reader (java.io.BufferedReader. *in*)
-        [rows cols] (clojure.string/split (.readLine reader) #"\s+")
+  (let [[rows cols] (clojure.string/split (read-line) #"\s+")
         rows (Integer. (re-find #"\d+" rows))
         cols (Integer. (re-find #"\d+" cols))
-        user-input (for [r (range rows)] (.readLine reader))]
+        user-input (for [r (range rows)] (read-line))]
     (if (and (validate-size rows cols user-input) (validate-input user-input))
       (println (print-next-position user-input))
       "Your grid was malformed! Check the size and it's contents!"
