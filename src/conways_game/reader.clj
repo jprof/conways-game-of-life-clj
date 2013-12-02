@@ -23,7 +23,7 @@
               \* true
               false))))
 
-(defn print-next-position
+(defn next-position-as-str
   [user-input]
   (core/vec-to-string
     (core/get-next-position
@@ -37,7 +37,7 @@
         cols (Integer. (re-find #"\d+" cols))
         user-input (for [r (range rows)] (read-line))]
     (if (and (validate-size rows cols user-input) (validate-input user-input))
-      (println (print-next-position user-input))
+      (next-position-as-str user-input)
       "Your grid was malformed! Check the size and it's contents!"
     )))
 
