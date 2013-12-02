@@ -34,7 +34,7 @@
       [off-x off-y])))
 
 (defn flip-clicked-cell
-  [[x y] board]
+  [x y board]
   (let [{cell-height :cell-height
          cell-width  :cell-width} (board-properties canvas @board)
         col-cell (int (/ x cell-width))
@@ -51,7 +51,7 @@
     (let [[off-x off-y] (get-offset this)
           x (- (.-x e) off-x)
           y (- (.-y e) off-y)]
-      (flip-clicked-cell [x y] board))))
+      (flip-clicked-cell x y board))))
 
 (defn get-next-position
   "Calculate the next state of the board from the current state."
