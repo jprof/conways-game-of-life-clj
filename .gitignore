@@ -1,6 +1,7 @@
 /target
 /classes
 /checkouts
+gh-pages/
 pom.xml
 pom.xml.asc
 *.jar
