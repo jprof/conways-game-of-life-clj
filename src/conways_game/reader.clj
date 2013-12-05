@@ -1,11 +1,6 @@
 (ns conways-game.reader
   (:require [conways-game.core :as core]))
 
-(defn read-input-file
-  [file-path]
-  (let [file-content (slurp file-path)]
-    ()))
-
 (defn validate-size
   [rows cols user-input]
   (and
